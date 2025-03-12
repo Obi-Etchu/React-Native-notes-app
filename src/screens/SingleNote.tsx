@@ -33,11 +33,11 @@ const styles = StyleSheet.create({
     padding:5,
     margin: 15,
     width: "90%", 
-    height:100,
+    height:90,
     alignSelf: "center",
     borderRadius:10,
     cursor:"pointer",
-    overflow:"hidden"
+    flexWrap:"wrap"
   },
   main:{
     fontSize:30,
