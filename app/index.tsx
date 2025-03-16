@@ -1,10 +1,16 @@
-import NotesScreen from "@/src/screens/NotesScreen";
-import { Text, View } from "react-native";
+import { createStackNavigator } from '@react-navigation/stack';
+import NotesScreen from '@/src/screens/NotesScreen';
+import Details from '@/src/screens/Details';
 
-export default function Index() {
+const Stack = createStackNavigator();
+
+const App = () => {
   return (
-    <View>
-      <NotesScreen/>
-    </View>
+    <Stack.Navigator >
+      <Stack.Screen name="Home" component={NotesScreen} options={{ headerShown: false }} />
+      <Stack.Screen name="Details" component={Details}  options={{ headerShown: false }}/>
+    </Stack.Navigator>
   );
-}
+};
+
+export default App;

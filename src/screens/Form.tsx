@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Text, View, StyleSheet, Modal, TouchableOpacity, TextInput } from 'react-native';
-import {AiFillEdit} from 'react-icons/ai'
+import { MaterialIcons } from '@expo/vector-icons';
+import e from 'cors';
 
 interface Props {
   open: boolean;
@@ -20,10 +21,10 @@ const FormComponent = ({ open, setOpen, openResponsive, setOpenResponsive,title,
   return (
     <View style={styles.container}>
       {/* Responsive Modal */}
-      <Text style={styles.span} onPress={() => setOpenResponsive(true)}>
-               <AiFillEdit/>
-      </Text>
-      <Modal visible={openResponsive} transparent animationType="slide">
+      <TouchableOpacity onPress={() => setOpenResponsive(true)} style={styles.span}>
+      <MaterialIcons name="add" size={25} color="rgb(197, 197, 4)" />
+      </TouchableOpacity>
+      <Modal visible={openResponsive} transparent >
         <View style={styles.modalContainer}>
           <View style={[styles.modalContent, styles.responsiveModal]}>
           <Text style={styles.label}>Title</Text>
@@ -42,7 +43,7 @@ const FormComponent = ({ open, setOpen, openResponsive, setOpenResponsive,title,
         onChangeText={setContent}
         multiline
         />
-           <TouchableOpacity style={styles.buttonsub} onPress={handleAdd}>
+           <TouchableOpacity style={styles.buttonsub} onPress={(e:React.FormEvent)=>handleAdd(e)}>
             <Text style={styles.buttonText2}>Submit</Text>
             </TouchableOpacity>
             <TouchableOpacity style={styles.button} onPress={() => setOpenResponsive(false)}>
@@ -65,7 +66,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#f5f5f5',
   },
   button: {
-    backgroundColor: '#007bff',
+    backgroundColor: 'rgb(197, 197, 4)',
     padding: 12,
     borderRadius: 5,
     marginVertical: 10,
@@ -118,14 +119,14 @@ const styles = StyleSheet.create({
     textAlignVertical: 'top',
   },
   buttonsub: {
-    backgroundColor: '#007bff',
+    backgroundColor: 'rgb(197, 197, 4)',
     padding: 15,
     borderRadius: 8,
     alignItems: 'center',
   },
   buttonText2: {
     color: 'white',
-    fontSize: 18,
+    fontSize: 12.8,
     fontWeight: 'bold',
   },
 });
